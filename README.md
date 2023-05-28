@@ -1,6 +1,6 @@
 README
 
-Este script de Python te permite analizar las publicaciones recientes de un usuario de Instagram. Realiza diversos análisis de los datos obtenidos de las publicaciones, como el análisis desentimientos, el conteo de likes, el análisis de hashtags, la detección de idioma, la extracción de entidades, entre otros. Además, genera visualizaciones gráficas para representar los resultados obtenidos.
+Este script de Python te permite analizar las publicaciones recientes de un usuario de Instagram. Realiza diversos análisis de los datos obtenidos de las publicaciones, como el análisis de sentimientos, el conteo de likes, el análisis de hashtags, la detección de idioma, la extracción de entidades, entre otros. Además, genera visualizaciones gráficas para representar los resultados obtenidos.
 
 Requisitos
 
