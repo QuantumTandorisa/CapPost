@@ -1,3 +1,29 @@
+# -*- coding: utf-8 -*-
+'''
+   ______            ____             __ 
+  / ____/___ _____  / __ \____  _____/ /_
+ / /   / __ `/ __ \/ /_/ / __ \/ ___/ __/
+/ /___/ /_/ / /_/ / ____/ /_/ (__  ) /_  
+\____/\__,_/ .___/_/    \____/____/\__/  
+          /_/                            
+'''
+#######################################################
+#    CapPost.py
+#
+# CapPost is a tool that allows you to analyze and 
+# visualize the data of your Instagram posts. With this
+# tool, you can get valuable information about your 
+# posts, interactions with other users, your followers'
+# preferences and much more.
+#
+#
+# 10/18/23 - Changed to Python3 (finally)
+#
+# Author: Facundo Fernandez 
+#
+#
+#######################################################
+
 import requests
 from nltk.sentiment import SentimentIntensityAnalyzer
 import nltk
@@ -11,6 +37,23 @@ import seaborn as sns
 
 nltk.download('punkt')
 
+data = {
+    'Recent Publications': [],  # Here you can add your data / Aquí puedes agregar tus datos
+    'Weekday of Recent Publications': [],  # Add more columns according to your data / Agrega más columnas según tus datos
+    'Hour of Recent Publications': [],
+    'Hashtags': [],
+    'Interactions with Other Accounts': [],
+    'Locations': [],
+    'Sentiments of Recent Publications': [],
+    'Content Types': [],
+    'User Mentions': [],
+    'Posting Frequency': [],
+    'Entities in Captions': [],
+    'New Followers': [],
+    'Lost Followers': [],
+    'Total Followers': [],
+}
+
 def get_recent_posts(user_id, access_token):
     url = f"https://graph.instagram.com/{user_id}/media?fields=id,caption,like_count,comments,mentions,location,media_type,timestamp&access_token={access_token}"
     
@@ -20,6 +63,17 @@ def get_recent_posts(user_id, access_token):
         return posts
     except requests.exceptions.RequestException as e:
         print("Error getting posts:", e)
+
+# Creating a DataFrame from the data dictionary / Crear un DataFrame a partir del diccionario de datos
+df = pd.DataFrame(data)
+
+# Specify the location and name of the output file (e.g. 'results.csv') / Especificar la ubicación y el nombre del archivo de salida (por ejemplo, 'resultados.csv')
+output_file = 'resultados.csv'
+
+# Write the DataFrame to a CSV file / Escribir el DataFrame en un archivo CSV
+df.to_csv(output_file, index=False)  # index=False to omit index column / index=False para omitir la columna de índice
+
+print(f"Los datos se han guardado en {output_file}")
 
 # Sentiment Analyzer configuration / Configuración del analizador de opiniones
 sia = SentimentIntensityAnalyzer()
@@ -202,4 +256,29 @@ plt.title(f'Top {top_n} Hashtags with Highest Interactions')
 plt.xticks(rotation=45)
 plt.show()
 
+# Create a DataFrame of pandas for results / Crear un DataFrame de pandas para los resultados
+data = {
+    'Recent Publications': captions,
+    'Weekday of Recent Publications': weekdays,
+    'Hour of Recent Publications': hours,
+    'Hashtags': hashtags,
+    'Interactions with Other Accounts': interactions,
+    'Locations': locations,
+    'Sentiments of Recent Publications': sentiments,
+    'Content Types': content_types,
+    'User Mentions': user_mentions,
+    'Posting Frequency': posting_frequency,
+    'Entities in Captions': entities,
+    'New Followers': new_followers,
+    'Lost Followers': lost_followers,
+    'Total Followers': total_followers,
+    # Add more columns according to your data / Agrega más columnas según tus datos
+}
+
+df = pd.DataFrame(data)
+
+# Saving the DataFrame in a CSV file / Guardar el DataFrame en un archivo CSV
+df.to_csv('resultados_instagram.csv', index=False)
+
 print("Post analysis completed.")
+
