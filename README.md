@@ -1,50 +1,60 @@
-README
+CapPost es una herramienta que te permite analizar y visualizar datos de tus publicaciones de Instagram. Con esta herramienta, puedes obtener información valiosa sobre tus publicaciones, interacciones con otros usuarios, preferencias de tus seguidores y mucho más.
 
-Este script de Python te permite analizar las publicaciones recientes de un usuario de Instagram. Realiza diversos análisis de los datos obtenidos de las publicaciones, como el análisis de sentimientos, el conteo de likes, el análisis de hashtags, la detección de idioma, la extracción de entidades, entre otros. Además, genera visualizaciones gráficas para representar los resultados obtenidos.
+## Características 
 
-Requisitos
+- **Análisis de Sentimientos**: CapPost utiliza el analizador de sentimientos de NLTK para determinar la polaridad de tus subtítulos.
 
-Asegúrate de tener las siguientes bibliotecas instaladas antes de ejecutar el script:
+- **Extracción de Hashtags**: Extrae y muestra los hashtags utilizados en tus publicaciones.
 
-    requests
-    nltk
-    spacy
-    pandas
-    seaborn
-    langdetect
-    wordcloud
-    sklearn
-    matplotlib
+- **Interacciones con Otros Usuarios**: Muestra las interacciones con otros usuarios, como menciones y comentarios.
 
-Puedes instalar estas bibliotecas usando pip con el siguiente comando:
+- **Análisis de la Actividad por Día y Hora**: Visualiza cuándo son más activas tus publicaciones.
 
-    pip install requests nltk spacy pandas seaborn langdetect wordcloud scikit-learn matplotlib
+- **Análisis de la Evolución de Seguidores**: Comprende cómo evolucionan tus seguidores con el tiempo.
 
-Además, necesitarás descargar los datos adicionales requeridos por NLTK y spaCy. Para ello, puedes ejecutar los siguientes comandos en tu entorno de Python:
+- **Nube de Palabras Clave**: Genera una nube de palabras clave basada en tus publicaciones.
 
-python
+## Requisitos
 
-    import nltk
-    nltk.download('punkt')
+- Python 3
+- Bibliotecas Python: nltk, spacy, scikit-learn, matplotlib, wordcloud, pandas, seaborn
 
-    import spacy
-    spacy.download('es_core_news_sm')
+## Uso
 
-Uso
+1. Clona este repositorio o descarga el archivo `CapPost.py`.
 
-Sigue los pasos a continuación para utilizar el script:
+2. Ejecuta el programa en tu entorno Python.
 
-Reemplaza las siguientes variables con tus propios valores en el código:
+3. Proporciona tu User ID y Access Token de Instagram.
 
-python
+## Configuración de API
 
-    usuario_id = "TU_USUARIO_ID"  # Reemplaza con tu usuario ID
-    access_token = "TU_ACCESS_TOKEN"  # Reemplaza con tu token de acceso
+1. Actualiza todas las bibliotecas en tu entorno virtual ejecutando los siguientes comandos:
+    
+    `pip install --upgrade pip`
+    
+    `pip freeze --local | grep -v '^-e' | cut -d = -f 1 | xargs -n1 pip install -U`
 
-Ejecuta el script en tu entorno de Python.
-El script recuperará las publicaciones recientes del usuario de Instagram especificado y realizará análisis en base a esos datos.
-Los resultados se imprimirán en la consola y se mostrarán visualizaciones gráficas, como gráficos de barras y nubes de palabras.
+2. Limpia archivos pyc ejecutando el siguiente comando:
+    
+    `find /home/quantum/portfolio/CapPost/CapPost -name '*.pyc' -exec rm -f {} ;`
 
-Contribuciones
+3. Descarga el modelo en inglés para spaCy ejecutando:
 
-Si deseas contribuir a este proyecto, siéntete libre de enviar tus pull requests. Estoy abierto a mejoras y sugerencias para hacer que el script sea más robusto y útil.
+    `python -m spacy download en_core_web_sm`
+
+4. Descarga los recursos necesarios para NLTK. Ejecuta el siguiente código en Python:
+    
+    `python`
+    
+    `import nltk`
+    
+    `nltk.download('punkt')`
+
+5. Ejecuta el programa en tu entorno Python:
+
+    `python3 CapPost.py`
+
+6. Proporciona tu User ID y Access Token de Instagram.
+
+Observa los resultados generados por CapPost, que incluyen tablas, gráficos y visualizaciones.
