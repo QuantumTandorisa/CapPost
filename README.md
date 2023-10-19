@@ -2,17 +2,17 @@ CapPost es una herramienta que te permite analizar y visualizar datos de tus pub
 
 ## Características 
 
-- **Análisis de Sentimientos**: CapPost utiliza el analizador de sentimientos de NLTK para determinar la polaridad de tus subtítulos.
+- Análisis de Sentimientos: CapPost utiliza el analizador de sentimientos de NLTK para determinar la polaridad de tus subtítulos.
 
-- **Extracción de Hashtags**: Extrae y muestra los hashtags utilizados en tus publicaciones.
+- Extracción de Hashtags: Extrae y muestra los hashtags utilizados en tus publicaciones.
 
-- **Interacciones con Otros Usuarios**: Muestra las interacciones con otros usuarios, como menciones y comentarios.
+- Interacciones con Otros Usuarios: Muestra las interacciones con otros usuarios, como menciones y comentarios.
 
-- **Análisis de la Actividad por Día y Hora**: Visualiza cuándo son más activas tus publicaciones.
+- Análisis de la Actividad por Día y Hora: Visualiza cuándo son más activas tus publicaciones.
 
-- **Análisis de la Evolución de Seguidores**: Comprende cómo evolucionan tus seguidores con el tiempo.
+- Análisis de la Evolución de Seguidores: Comprende cómo evolucionan tus seguidores con el tiempo.
 
-- **Nube de Palabras Clave**: Genera una nube de palabras clave basada en tus publicaciones.
+- Nube de Palabras Clave: Genera una nube de palabras clave basada en tus publicaciones.
 
 ## Requisitos
 
@@ -21,29 +21,27 @@ CapPost es una herramienta que te permite analizar y visualizar datos de tus pub
 
 ## Uso
 
-1. Clona este repositorio o descarga el archivo `CapPost.py`.
-
-2. Ejecuta el programa en tu entorno Python.
-
-3. Proporciona tu User ID y Access Token de Instagram.
+-  Clona este repositorio o descarga el archivo `CapPost.py`.
+-  Ejecuta el programa en tu entorno Python.
+-  Proporciona tu User ID y Access Token de Instagram.
 
 ## Configuración de API
 
-1. Actualiza todas las bibliotecas en tu entorno virtual ejecutando los siguientes comandos:
+-  Actualiza todas las bibliotecas en tu entorno virtual ejecutando los siguientes comandos:
     
     `pip install --upgrade pip`
     
     `pip freeze --local | grep -v '^-e' | cut -d = -f 1 | xargs -n1 pip install -U`
 
-2. Limpia archivos pyc ejecutando el siguiente comando:
+-  Limpia archivos pyc ejecutando el siguiente comando:
     
     `find /home/quantum/portfolio/CapPost/CapPost -name '*.pyc' -exec rm -f {} ;`
 
-3. Descarga el modelo en inglés para spaCy ejecutando:
+-  Descarga el modelo en inglés para spaCy ejecutando:
 
     `python -m spacy download en_core_web_sm`
 
-4. Descarga los recursos necesarios para NLTK. Ejecuta el siguiente código en Python:
+-  Descarga los recursos necesarios para NLTK. Ejecuta el siguiente código en Python:
     
     `python`
     
@@ -51,10 +49,10 @@ CapPost es una herramienta que te permite analizar y visualizar datos de tus pub
     
     `nltk.download('punkt')`
 
-5. Ejecuta el programa en tu entorno Python:
+-  Ejecuta el programa en tu entorno Python:
 
     `python3 CapPost.py`
 
-6. Proporciona tu User ID y Access Token de Instagram.
+-  Proporciona tu User ID y Access Token de Instagram.
 
 Observa los resultados generados por CapPost, que incluyen tablas, gráficos y visualizaciones.
